@@ -16,9 +16,19 @@ const { nodes, variant, level = 1 } = Astro.props;
 
 // raw(이모지가 살아있는 원문)가 있는 항목만 HTML로 렌더한다.
 const urls = await getEmojiUrls();
+
+// 제목에 이미 번호("1. 왜 나왔나")를 단 글이면 인라인 목차가 번호를 또 붙이지 않는다("3. 1. …" 방지).
+const prenumbered = nodes.some((n) => /^\d+(\.\d+)*[.)]?\s/.test(n.text.trim()));
 ---
 
-<ul class:list={['toc__list', `toc__list--${variant}`, `toc__list--l${level}`]}>
+<ul
+  class:list={[
+    'toc__list',
+    `toc__list--${variant}`,
+    `toc__list--l${level}`,
+    { 'toc__list--prenumbered': prenumbered },
+  ]}
+>
   {
     nodes.map((node) => (
       <li class="toc__item">
@@ -80,6 +90,13 @@ const urls = await getEmojiUrls();
     text-indent: 0;
     color: var(--color-text-muted);
     font-variant-numeric: tabular-nums;
+  }
+  .toc__list--l1.toc__list--inline.toc__list--prenumbered > .toc__item > .toc__link {
+    padding-left: 0;
+    text-indent: 0;
+  }
+  .toc__list--l1.toc__list--inline.toc__list--prenumbered > .toc__item > .toc__link::before {
+    content: none;
   }
   /* 2단 이하: 들여쓰기 + 가운뎃점 */
   .toc__list--inline .toc__list--inline {
