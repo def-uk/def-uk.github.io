@@ -5,16 +5,23 @@ draft: true
 ---
 # 동욱
 
-**개발 + 영상 · 모션**
+**AI · 개발 + 영상 · 모션**
 
 :github:[GitHub](https://github.com/def-uk)
+
+## 하는 일
+
+- **딥러닝 실험** — 컴퓨터 비전(분류·탐지·세그멘테이션)과 데이터 분석. 문제를 데이터로 쪼개 보고 실험으로 원인을 좁혀 가는 일을 좋아합니다.
+- **앱·웹 개발** — Flutter로 앱을, React·Next.js로 웹을 만듭니다.
+- **영상·모션** — 영상 인트로와 모션 그래픽을 만듭니다.
 
 ## 도구
 
 | 분야 | 도구 |
 | --- | --- |
+| **AI · 데이터** | `Python`, `PyTorch`, `scikit-learn`, `pandas`, `seaborn` |
+| **개발** | `Flutter`, `React`, `Next.js` |
 | **영상 · 모션** | `Premiere Pro`, `After Effects`, `Higgsfield` |
-| **개발** | `Python`, `Flutter`, `React`, `Next.js` |
 
 ## 경력 및 활동
 

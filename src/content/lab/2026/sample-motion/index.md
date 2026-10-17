@@ -7,7 +7,6 @@ tools: [after-effects, higgsfield]
 date: 2026-10-17T16:00:00+09:00
 media: ./loop.webm
 poster: ./poster.jpg
-work: sample-project
 draft: true
 ---
 
