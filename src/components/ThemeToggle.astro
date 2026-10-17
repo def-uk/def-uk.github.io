@@ -1,0 +1,87 @@
+---
+// 라이트/다크 전환. 처음에는 OS 설정을 따르고, 한 번 누르면 그 선택을 기억한다.
+// 아이콘은 <html data-theme>/OS 설정 기반 CSS라 로드 즉시 맞는 모양으로 보인다(FOUC 없음).
+---
+
+<button id="theme-toggle" type="button" class="theme-toggle" aria-label="테마 전환 / Toggle theme">
+  <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.5"></circle>
+    <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"></path>
+  </svg>
+  <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"></path>
+  </svg>
+</button>
+
+<style>
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 1.95rem;
+    height: 1.95rem;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .theme-toggle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  svg {
+    grid-area: 1 / 1;
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* 라이트일 때 달(→다크로), 다크일 때 해(→라이트로)를 보여준다. */
+  .theme-toggle__sun {
+    display: none;
+  }
+  :root[data-theme='dark'] .theme-toggle__sun {
+    display: block;
+  }
+  :root[data-theme='dark'] .theme-toggle__moon {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .theme-toggle__sun {
+      display: block;
+    }
+    :root:not([data-theme='light']) .theme-toggle__moon {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const current = () => {
+    const chosen = document.documentElement.getAttribute('data-theme');
+    if (chosen === 'light' || chosen === 'dark') return chosen;
+    return media.matches ? 'dark' : 'light';
+  };
+
+  toggle?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('theme', next);
+    } catch {
+      /* localStorage 불가 시 이번 페이지에만 적용 */
+    }
+  });
+</script>

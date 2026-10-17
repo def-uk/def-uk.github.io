@@ -1,0 +1,82 @@
+---
+/**
+ * 해석된 미디어(src/lib/media.ts) 하나를 그린다.
+ *   - 이미지 → astro:assets 최적화
+ *   - 영상   → 무음 루프. mode='hover' 는 마우스를 올릴 때만, 'view' 는 화면에 보일 때 재생,
+ *              'controls' 는 상세 페이지용 일반 플레이어.
+ * 모션 줄이기 설정이면 자동 재생하지 않는다(스크립트 쪽에서 확인).
+ */
+import { Image } from 'astro:assets';
+import type { Media } from '../lib/media';
+
+interface Props {
+  media: Media;
+  alt: string;
+  poster?: Media;
+  mode?: 'hover' | 'view' | 'controls';
+  widths?: number[];
+  sizes?: string;
+  class?: string;
+}
+const {
+  media,
+  alt,
+  poster,
+  mode = 'view',
+  widths = [480, 800, 1200],
+  sizes = '(max-width: 640px) 100vw, 50vw',
+  class: className,
+} = Astro.props;
+const posterSrc = poster?.type === 'image' ? poster.src.src : undefined;
+---
+
+{
+  media.type === 'image' ? (
+    <Image src={media.src} alt={alt} widths={widths} sizes={sizes} class={className} />
+  ) : mode === 'controls' ? (
+    <video src={media.src} poster={posterSrc} controls playsinline preload="metadata" class={className} />
+  ) : (
+    <video
+      src={media.src}
+      poster={posterSrc}
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-label={alt}
+      data-autoplay={mode}
+      class={className}
+    />
+  )
+}
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const play = (v: HTMLVideoElement) => {
+    if (!reduce.matches) v.play().catch(() => {});
+  };
+
+  const inView = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting) play(v);
+        else v.pause();
+      }
+    },
+    { threshold: 0.35 },
+  );
+
+  for (const v of document.querySelectorAll<HTMLVideoElement>('video[data-autoplay]')) {
+    if (v.dataset.autoplay === 'view') {
+      inView.observe(v);
+    } else {
+      // hover: 카드 전체(가장 가까운 링크)에 마우스가 올라가면 재생
+      const host = v.closest('a') ?? v;
+      host.addEventListener('mouseenter', () => play(v));
+      host.addEventListener('mouseleave', () => v.pause());
+      host.addEventListener('focus', () => play(v));
+      host.addEventListener('blur', () => v.pause());
+    }
+  }
+</script>

@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/700.css';
+import Nav from '../components/Nav.astro';
+import { withBase } from '../lib/url';
+import { stripEmoji } from '../lib/emoji';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 이 페이지의 포인트 색(#rrggbb). Work frontmatter 의 accent 가 여기로 온다. */
+  accent?: string;
+}
+const { title, description, accent } = Astro.props;
+const siteTitle = 'dongwook';
+// <title>·og:*·meta 는 태그 속성이라 이미지를 넣을 수 없다 → 이모지 토큰은 걷어낸다.
+const plainTitle = title ? stripEmoji(title) : undefined;
+const plainDescription = description ? stripEmoji(description) : undefined;
+const fullTitle = plainTitle ? `${plainTitle} · ${siteTitle}` : `${siteTitle} · Code ↔ Canvas`;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <title>{fullTitle}</title>
+    {plainDescription && <meta name="description" content={plainDescription} />}
+    <meta property="og:title" content={fullTitle} />
+    {plainDescription && <meta property="og:description" content={plainDescription} />}
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+
+    {/* FOUC 방지: 본문 렌더 전에 저장된 언어·테마를 <html>에 적용.
+        테마는 사용자가 고른 적 있을 때만 data-theme 을 심는다 — 없으면 CSS 가 OS 설정을 따른다. */}
+    <script is:inline>
+      (function () {
+        var el = document.documentElement;
+        try {
+          var lang = localStorage.getItem('lang');
+          if (lang !== 'ko' && lang !== 'en') lang = 'ko';
+          el.setAttribute('data-lang', lang);
+          el.lang = lang;
+          var theme = localStorage.getItem('theme');
+          if (theme === 'light' || theme === 'dark') el.setAttribute('data-theme', theme);
+        } catch (e) {
+          el.setAttribute('data-lang', 'ko');
+        }
+      })();
+    </script>
+    {/* 페이지 포인트 색은 라이트/다크 팔레트 둘 다를 이겨야 해서 !important 로 심는다. */}
+    {
+      accent && (
+        <style
+          is:inline
+          set:html={`:root{--color-accent:${accent} !important;--color-accent-hover:color-mix(in srgb,${accent} 80%,var(--color-text)) !important}`}
+        />
+      )
+    }
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container container-wide">
+        <p>© {year} dongwook · Built with Astro</p>
+      </div>
+    </footer>
+
+    <style>
+      .site-footer {
+        border-top: 1px solid var(--color-border);
+        padding-block: 1.75rem;
+        color: var(--color-text-muted);
+        font-size: var(--text-sm);
+      }
+      .site-footer p {
+        margin: 0;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+---
+/**
+ * Lab 작품 하나. 미디어 크게 + 캡션 + (있으면) 본문 메모 + 연결된 Work.
+ * 2단계에서 그리드 위에 뜨는 전체화면 뷰어로 바뀌어도 이 URL 은 공유용으로 남는다.
+ */
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BiText from '../../components/BiText.astro';
+import MediaView from '../../components/MediaView.astro';
+import Prose from '../../components/Prose.astro';
+import WorkMeta from '../../components/WorkMeta.astro';
+import { getBilingualDocs, getLabItems, type LabItem } from '../../lib/content';
+import { resolveMedia, resolveMaybe } from '../../lib/media';
+import { UI } from '../../lib/i18n';
+import { vtName, withBase } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const items = await getLabItems();
+  return items.map((item, i) => ({
+    params: { path: item.path },
+    props: { item, prev: items[i - 1], next: items[i + 1] },
+  }));
+}
+
+interface Props {
+  item: LabItem;
+  prev?: LabItem;
+  next?: LabItem;
+}
+const { item, prev, next } = Astro.props;
+const { data } = item;
+const media = resolveMedia(item.filePath, data.media);
+const poster = resolveMaybe(item.filePath, data.poster);
+const { Content } = await render(item.entry);
+const hasBody = (item.entry.body ?? '').trim().length > 0;
+
+const related = data.work
+  ? (await getBilingualDocs('work')).find((d) => d.path === data.work)
+  : undefined;
+if (data.work && !related) {
+  throw new Error(`[lab] ${item.path}: work "${data.work}" 를 찾을 수 없습니다`);
+}
+
+const fmtDate = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={data.title.ko} description={data.caption?.ko}>
+  <article class="lab-detail container container-wide">
+    <figure class="lab-detail__media" style={`view-transition-name:${vtName('lab', item.path)}`}>
+      <MediaView
+        media={media}
+        poster={poster}
+        alt={data.title.en}
+        mode={media.type === 'video' ? 'view' : undefined}
+        widths={[800, 1200, 1800]}
+        sizes="(max-width: 1100px) 100vw, 64rem"
+      />
+    </figure>
+
+    <header class="lab-detail__header">
+      <p class="eyebrow"><time>{fmtDate(data.date)}</time></p>
+      <h1><BiText ko={data.title.ko} en={data.title.en} /></h1>
+      {data.caption && <p class="lab-detail__caption"><BiText ko={data.caption.ko} en={data.caption.en} /></p>}
+      <WorkMeta kinds={data.kind} tools={data.tools} />
+    </header>
+
+    {
+      hasBody && (
+        <div class="lab-detail__body">
+          <Prose>
+            <Content />
+          </Prose>
+        </div>
+      )
+    }
+
+    {
+      related && (
+        <p class="lab-detail__related">
+          <BiText ko={UI.relatedWork.ko} en={UI.relatedWork.en} /> →{' '}
+          <a href={withBase(`/work/${related.path}`)}>
+            <BiText ko={related.title.ko} en={related.title.en} />
+          </a>
+        </p>
+      )
+    }
+
+    <nav class="lab-detail__pager" aria-label="Lab">
+      {prev ? <a href={withBase(`/lab/${prev.path}`)} rel="prev">← <BiText ko={prev.data.title.ko} en={prev.data.title.en} /></a> : <span />}
+      <a href={withBase('/lab')}>Lab</a>
+      {next ? <a href={withBase(`/lab/${next.path}`)} rel="next"><BiText ko={next.data.title.ko} en={next.data.title.en} /> →</a> : <span />}
+    </nav>
+  </article>
+</BaseLayout>
+
+<style>
+  .lab-detail {
+    padding-top: 1.5rem;
+  }
+  .lab-detail__media {
+    margin: 0 0 1.75rem;
+    border-radius: calc(var(--radius) * 1.5);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+  .lab-detail__media :global(img),
+  .lab-detail__media :global(video) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+  .lab-detail__header,
+  .lab-detail__body,
+  .lab-detail__related {
+    max-width: var(--content-width);
+  }
+  .lab-detail__header h1 {
+    font-size: var(--text-2xl);
+    margin: 0 0 0.4rem;
+    line-height: 1.25;
+  }
+  .lab-detail__caption {
+    margin: 0 0 0.9rem;
+    color: var(--color-text-muted);
+  }
+  .lab-detail__body {
+    margin-top: 1.5rem;
+  }
+  .lab-detail__related {
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+  .lab-detail__pager {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+  }
+  .lab-detail__pager > :last-child {
+    text-align: right;
+  }
+</style>
+
+<script>
+  // ←/→ 로 이전·다음 작품, ESC 로 목록 — 2단계 뷰어의 키보드 동작을 미리 맞춰 둔다.
+  document.addEventListener('keydown', (e) => {
+    if (e.target instanceof HTMLElement && e.target.closest('input, textarea, [contenteditable]')) return;
+    const go = (sel: string) => document.querySelector<HTMLAnchorElement>(sel)?.click();
+    if (e.key === 'ArrowLeft') go('.lab-detail__pager a[rel="prev"]');
+    else if (e.key === 'ArrowRight') go('.lab-detail__pager a[rel="next"]');
+    else if (e.key === 'Escape') location.href = document.querySelector<HTMLAnchorElement>('.lab-detail__pager > a:not([rel])')!.href;
+  });
+</script>

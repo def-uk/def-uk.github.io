@@ -1,0 +1,66 @@
+---
+/** kind 배지 + 도구 목록 + (도구에 AI 가 있으면) AI 배지. 카드와 상세 헤더가 함께 쓴다. */
+import { AI_TOOLS, KIND_LABEL, toolLabel } from '../lib/i18n';
+import type { Kind } from '../lib/content';
+
+interface Props {
+  kinds: Kind[];
+  tools?: string[];
+  compact?: boolean;
+}
+const { kinds, tools = [], compact = false } = Astro.props;
+const ai = tools.some((t) => AI_TOOLS.has(t));
+---
+
+<div class:list={['work-meta', { 'work-meta--compact': compact }]}>
+  {kinds.map((k) => <span class={`badge badge--${k}`}>{KIND_LABEL[k].en}</span>)}
+  {ai && <span class="badge badge--ai" title="AI-assisted">AI</span>}
+  {
+    tools.length > 0 && (
+      <span class="work-meta__tools">{tools.map(toolLabel).join(' · ')}</span>
+    )
+  }
+</div>
+
+<style>
+  .work-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .badge {
+    padding: 0.05em 0.6em;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: 1px solid currentColor;
+  }
+  /* kind 마다 색을 고정해 목록에서 유형이 한눈에 갈리게 한다. */
+  .badge--code {
+    color: #2563eb;
+  }
+  .badge--design {
+    color: #db2777;
+  }
+  .badge--video {
+    color: #059669;
+  }
+  .badge--motion {
+    color: #7c3aed;
+  }
+  .badge--ai {
+    color: var(--color-text-muted);
+    border-style: dashed;
+  }
+  .work-meta__tools {
+    margin-left: 0.25rem;
+    color: var(--color-text-muted);
+  }
+  .work-meta--compact .work-meta__tools {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+</style>

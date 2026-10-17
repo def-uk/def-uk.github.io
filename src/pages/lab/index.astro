@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BiText from '../../components/BiText.astro';
+import KindFilter from '../../components/KindFilter.astro';
+import LabGrid from '../../components/LabGrid.astro';
+import { getLabItems } from '../../lib/content';
+import { UI } from '../../lib/i18n';
+
+const items = await getLabItems();
+---
+
+<BaseLayout title={UI.lab.en}>
+  <div class="container container-wide kind-filter-scope">
+    <header class="page-header">
+      <h1><BiText ko={UI.lab.ko} en={UI.lab.en} /></h1>
+      <p class="page-intro"><BiText ko={UI.labIntro.ko} en={UI.labIntro.en} /></p>
+    </header>
+    <KindFilter kinds={items.flatMap((i) => i.data.kind)} />
+    <LabGrid items={items} />
+  </div>
+</BaseLayout>

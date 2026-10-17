@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="840" viewBox="0 0 600 840">
+  <rect width="600" height="840" fill="#17161a"/>
+  <g fill="none" stroke="#fb923c" stroke-width="3">
+    <circle cx="300" cy="360" r="200"/>
+    <circle cx="300" cy="360" r="150" stroke="#7c3aed"/>
+    <circle cx="300" cy="360" r="100"/>
+  </g>
+  <text x="48" y="740" fill="#fbfaf7" font-family="Helvetica, Arial, sans-serif" font-size="64" font-weight="800">SAMPLE</text>
+  <text x="48" y="790" fill="#a1a1aa" font-family="Helvetica, Arial, sans-serif" font-size="22">Lab · design</text>
+</svg>

@@ -1,0 +1,121 @@
+---
+// 우측 sticky 목차(Table of Contents).
+// 한/영 목록을 각각 [data-lang-block]에 렌더 → 언어 전환은 기존 CSS가 처리한다.
+// 계층 구조는 TocList가, 스크롤 위치 하이라이트는 아래 클라이언트 스크립트가 담당한다.
+import type { TocNode } from '../lib/toc';
+import { countTocNodes } from '../lib/toc';
+import { UI } from '../lib/i18n';
+import TocList from './TocList.astro';
+
+interface Props {
+  ko?: TocNode[];
+  en?: TocNode[];
+}
+const { ko = [], en = [] } = Astro.props;
+
+const MIN_ITEMS = 2;
+const show = countTocNodes(ko) >= MIN_ITEMS || countTocNodes(en) >= MIN_ITEMS;
+---
+
+{
+  show && (
+    <nav class="doc-toc" aria-label="Table of contents">
+      <div data-lang-block="ko">
+        <p class="doc-toc__title">{UI.tocAside.ko}</p>
+        <TocList nodes={ko} variant="aside" />
+      </div>
+      <div data-lang-block="en">
+        <p class="doc-toc__title">{UI.tocAside.en}</p>
+        <TocList nodes={en} variant="aside" />
+      </div>
+    </nav>
+  )
+}
+
+<style>
+  .doc-toc__title {
+    margin: 0 0 0.75em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+</style>
+
+<script>
+  // position 기반 스크롤 스파이. display:none인 비활성 언어 heading은 offsetParent가
+  // null이라 자동으로 제외된다 → 언어 전환도 별도 처리 없이 동작한다.
+  function initToc() {
+    const links = new Map<string, HTMLAnchorElement>();
+    document.querySelectorAll<HTMLAnchorElement>('.doc-toc a[data-toc-link]').forEach((a) => {
+      const id = a.getAttribute('data-toc-link');
+      if (id) links.set(id, a);
+    });
+    if (links.size === 0) return;
+
+    // 목차에 실린 heading만 추적한다(목차 깊이 설정이 바뀌어도 자동으로 따라간다).
+    const headings = Array.from(
+      document.querySelectorAll<HTMLElement>('.prose :is(h1, h2, h3, h4, h5, h6)[id]'),
+    ).filter((h) => links.has(h.id));
+    if (headings.length === 0) return;
+
+    const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    const headerRem =
+      parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) ||
+      4;
+    const offset = headerRem * remPx + 24;
+
+    let current: string | null = null;
+    function setActive(id: string | null) {
+      if (id === current) return;
+      if (current) {
+        const prev = links.get(current);
+        if (prev) {
+          prev.classList.remove('is-active');
+          prev.removeAttribute('aria-current');
+        }
+      }
+      current = id;
+      if (id) {
+        const next = links.get(id);
+        if (next) {
+          next.classList.add('is-active');
+          next.setAttribute('aria-current', 'true');
+        }
+      }
+    }
+
+    function recompute() {
+      let active: string | null = null;
+      let firstVisible: string | null = null;
+      for (const h of headings) {
+        if (!h.id || h.offsetParent === null) continue; // 숨겨진 언어 블록 제외
+        if (firstVisible === null) firstVisible = h.id;
+        if (h.getBoundingClientRect().top - offset <= 0) active = h.id;
+      }
+      setActive(active ?? firstVisible);
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        recompute();
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    // 언어 토글(data-lang 변경) 시 활성 항목 재계산
+    new MutationObserver(recompute).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-lang'],
+    });
+    recompute();
+  }
+
+  initToc();
+</script>

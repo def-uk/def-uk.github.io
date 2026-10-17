@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BiText from '../../components/BiText.astro';
+import KindFilter from '../../components/KindFilter.astro';
+import WorkGrid from '../../components/WorkGrid.astro';
+import { getBilingualDocs } from '../../lib/content';
+import { UI } from '../../lib/i18n';
+
+const docs = await getBilingualDocs('work');
+---
+
+<BaseLayout title={UI.work.en}>
+  <div class="container container-wide kind-filter-scope">
+    <header class="page-header">
+      <h1><BiText ko={UI.work.ko} en={UI.work.en} /></h1>
+      <p class="page-intro"><BiText ko={UI.workIntro.ko} en={UI.workIntro.en} /></p>
+    </header>
+    <KindFilter kinds={docs.flatMap((d) => d.work?.kind ?? [])} />
+    <WorkGrid docs={docs} />
+  </div>
+</BaseLayout>

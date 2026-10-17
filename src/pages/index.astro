@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Bilingual from '../components/Bilingual.astro';
+import BiText from '../components/BiText.astro';
+import DocList from '../components/DocList.astro';
+import LabGrid from '../components/LabGrid.astro';
+import WorkGrid from '../components/WorkGrid.astro';
+import CodeCanvas from '../components/hero/CodeCanvas';
+import { getBilingualDocs, getLabItems, getPageEntries } from '../lib/content';
+import { UI } from '../lib/i18n';
+import { withBase } from '../lib/url';
+
+const home = await getPageEntries('home');
+const [work, lab, log] = await Promise.all([
+  getBilingualDocs('work'),
+  getLabItems(),
+  getBilingualDocs('log'),
+]);
+// featured 가 하나도 없으면 최신 Work 로 채운다.
+const featured = (work.some((d) => d.work?.featured) ? work.filter((d) => d.work?.featured) : work).slice(0, 3);
+const latestLab = lab.slice(0, 6);
+const recentLog = log.slice(0, 5);
+---
+
+<BaseLayout>
+  <section class="hero container container-wide">
+    <div class="hero__stage">
+      <CodeCanvas client:load />
+    </div>
+    <div class="hero__intro">
+      {(home.ko || home.en) && <Bilingual ko={home.ko} en={home.en} />}
+    </div>
+  </section>
+
+  <div class="container container-wide">
+    {
+      featured.length > 0 && (
+        <section class="section">
+          <div class="section__head">
+            <h2 class="section__title"><BiText ko={UI.featuredWork.ko} en={UI.featuredWork.en} /></h2>
+            <a href={withBase('/work')}><BiText ko={UI.viewAll.ko} en={UI.viewAll.en} /> →</a>
+          </div>
+          <WorkGrid docs={featured} />
+        </section>
+      )
+    }
+    {
+      latestLab.length > 0 && (
+        <section class="section">
+          <div class="section__head">
+            <h2 class="section__title"><BiText ko={UI.latestLab.ko} en={UI.latestLab.en} /></h2>
+            <a href={withBase('/lab')}><BiText ko={UI.viewAll.ko} en={UI.viewAll.en} /> →</a>
+          </div>
+          <LabGrid items={latestLab} />
+        </section>
+      )
+    }
+    <section class="section">
+      <div class="section__head">
+        <h2 class="section__title"><BiText ko={UI.recent.ko} en={UI.recent.en} /></h2>
+        <a href={withBase('/log')}><BiText ko={UI.viewAll.ko} en={UI.viewAll.en} /> →</a>
+      </div>
+      <DocList docs={recentLog} collection="log" />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+    padding-block: 3rem 1rem;
+  }
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: 1.25fr 1fr;
+    }
+  }
+  .hero__intro :global(h1) {
+    font-size: var(--text-3xl);
+    line-height: 1.2;
+    margin-top: 0;
+  }
+  .section__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .section__head a {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+</style>

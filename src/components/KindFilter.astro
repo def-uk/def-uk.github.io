@@ -1,0 +1,79 @@
+---
+/**
+ * kind 필터 칩. 같은 부모(.kind-filter-scope) 안에서 `data-kinds="code motion"` 를 단
+ * 항목들을 거른다. 목록에 실제로 있는 kind 만 칩으로 보여준다.
+ */
+import { KIND_LABEL, UI } from '../lib/i18n';
+import type { Kind } from '../lib/content';
+
+interface Props {
+  kinds: Kind[];
+}
+const present = [...new Set(Astro.props.kinds)];
+const order = Object.keys(KIND_LABEL) as Kind[];
+const chips = order.filter((k) => present.includes(k));
+---
+
+{
+  chips.length > 1 && (
+    <div class="kind-filter" role="group" aria-label="Filter">
+      <button type="button" class="kind-chip" data-kind="" aria-pressed="true">
+        <span data-lang-block="ko">{UI.all.ko}</span>
+        <span data-lang-block="en">{UI.all.en}</span>
+      </button>
+      {chips.map((k) => (
+        <button type="button" class="kind-chip" data-kind={k} aria-pressed="false">
+          {KIND_LABEL[k].en}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .kind-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .kind-chip {
+    padding: 0.3rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-text-muted);
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+  .kind-chip:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+  .kind-chip[aria-pressed='true'] {
+    background: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-bg);
+  }
+</style>
+
+<script>
+  for (const group of document.querySelectorAll<HTMLElement>('.kind-filter')) {
+    const scope = group.closest('.kind-filter-scope');
+    if (!scope) continue;
+    const chips = group.querySelectorAll<HTMLButtonElement>('.kind-chip');
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const kind = chip.dataset.kind ?? '';
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        for (const item of scope.querySelectorAll<HTMLElement>('[data-kinds]')) {
+          const kinds = (item.dataset.kinds ?? '').split(' ');
+          item.hidden = kind !== '' && !kinds.includes(kind);
+        }
+      }),
+    );
+  }
+</script>

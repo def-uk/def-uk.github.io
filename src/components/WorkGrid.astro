@@ -1,0 +1,147 @@
+---
+/** Work 카드 그리드. 표지(이미지/영상) + 제목 + kind·도구. 영상 표지는 호버 시 재생. */
+import type { BilingualDoc } from '../lib/content';
+import { resolveMaybe } from '../lib/media';
+import { UI } from '../lib/i18n';
+import { vtName, withBase } from '../lib/url';
+import BiText from './BiText.astro';
+import MediaView from './MediaView.astro';
+import WorkMeta from './WorkMeta.astro';
+
+interface Props {
+  docs: BilingualDoc[];
+}
+const { docs } = Astro.props;
+
+const cards = docs.map((doc) => {
+  const filePath = (doc.entries.ko ?? doc.entries.en)?.filePath ?? '';
+  return {
+    doc,
+    cover: resolveMaybe(filePath, doc.cover),
+    video: resolveMaybe(filePath, doc.work?.coverVideo),
+  };
+});
+---
+
+{
+  cards.length === 0 ? (
+    <p class="muted">
+      <BiText ko={UI.noContent.ko} en={UI.noContent.en} />
+    </p>
+  ) : (
+    <ul class="work-grid">
+      {cards.map(({ doc, cover, video }) => (
+        <li data-kinds={doc.work?.kind.join(' ')} style={doc.work?.accent ? `--card-accent:${doc.work.accent}` : undefined}>
+          <a class="work-card" href={withBase(`/work/${doc.path}`)}>
+            <div class="work-card__media" style={`view-transition-name:${vtName('work', doc.path)}`}>
+              {video ? (
+                <MediaView media={video} poster={cover} alt="" mode="hover" />
+              ) : cover ? (
+                <MediaView media={cover} alt="" />
+              ) : (
+                <span class="work-card__placeholder" aria-hidden="true">
+                  {doc.slug}
+                </span>
+              )}
+            </div>
+            <div class="work-card__body">
+              <h3 class="work-card__title">
+                <BiText ko={doc.title.ko} en={doc.title.en} />
+              </h3>
+              {(doc.description.ko || doc.description.en) && (
+                <p class="work-card__desc">
+                  <BiText ko={doc.description.ko} en={doc.description.en} />
+                </p>
+              )}
+              {doc.work && <WorkMeta kinds={doc.work.kind} tools={doc.work.tools} compact />}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .work-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+  }
+  .work-grid > li[hidden] {
+    display: none;
+  }
+  .work-card {
+    --card-accent-color: var(--card-accent, var(--color-accent));
+    display: block;
+    height: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius) * 1.5);
+    overflow: hidden;
+    color: var(--color-text);
+    background: var(--color-bg);
+    transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+  }
+  .work-card:hover {
+    text-decoration: none;
+    color: var(--color-text);
+    transform: translateY(-3px);
+    border-color: var(--card-accent-color);
+    box-shadow: var(--shadow-card);
+  }
+  .work-card__media {
+    aspect-ratio: 16 / 10;
+    background: var(--color-surface);
+    overflow: hidden;
+  }
+  .work-card__media :global(img),
+  .work-card__media :global(video) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .work-card__placeholder {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--color-surface) 0 12px,
+      color-mix(in srgb, var(--card-accent-color) 8%, var(--color-surface)) 12px 24px
+    );
+  }
+  .work-card__body {
+    padding: 1rem 1.15rem 1.15rem;
+  }
+  .work-card__title {
+    margin: 0 0 0.3rem;
+    font-size: var(--text-lg);
+    line-height: 1.35;
+  }
+  .work-card:hover .work-card__title {
+    color: var(--card-accent-color);
+  }
+  .work-card__desc {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+  .muted {
+    color: var(--color-text-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .work-card {
+      transition: none;
+    }
+    .work-card:hover {
+      transform: none;
+    }
+  }
+</style>

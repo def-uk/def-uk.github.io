@@ -1,0 +1,199 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Bilingual from '../../components/Bilingual.astro';
+import DocList from '../../components/DocList.astro';
+import BiText from '../../components/BiText.astro';
+import DocToc from '../../components/DocToc.astro';
+import PostToc from '../../components/PostToc.astro';
+import Comments from '../../components/Comments.astro';
+import WorkMeta from '../../components/WorkMeta.astro';
+import MediaView from '../../components/MediaView.astro';
+import { resolveMaybe } from '../../lib/media';
+import { getBilingualDocs, type BilingualDoc, type BilingualCollection } from '../../lib/content';
+import { getCategoryPaths, docsInCategory } from '../../lib/categories';
+import { buildTocTree, withRawHeadings, type TocNode } from '../../lib/toc';
+import { humanize, UI } from '../../lib/i18n';
+import { vtName, withBase } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const collections: BilingualCollection[] = ['work', 'log'];
+  const paths = [];
+  for (const collection of collections) {
+    const docs = await getBilingualDocs(collection);
+    for (const doc of docs) {
+      paths.push({
+        params: { collection, path: doc.path },
+        props: { kind: 'doc' as const, collection, path: doc.path },
+      });
+    }
+    for (const catPath of getCategoryPaths(docs)) {
+      paths.push({
+        params: { collection, path: catPath },
+        props: { kind: 'category' as const, collection, path: catPath },
+      });
+    }
+  }
+  return paths;
+}
+
+const { kind, collection, path } = Astro.props;
+const docs = await getBilingualDocs(collection);
+
+const fmtDate = (d?: Date) => (d ? d.toISOString().slice(0, 10) : '');
+
+let doc: BilingualDoc | undefined;
+let categoryDocs: BilingualDoc[] = [];
+let title = path;
+let koToc: TocNode[] = [];
+let enToc: TocNode[] = [];
+
+if (kind === 'doc') {
+  doc = docs.find((d) => d.path === path);
+  title = doc?.title.ko ?? doc?.title.en ?? path;
+
+  // 목차용 heading 목록(언어별). Bilingual이 본문을 렌더하고, 여기선 목차만 뽑는다.
+  // remarkPluginFrontmatter로 커스텀 이모지가 살아있는 원문도 함께 받는다.
+  const koRendered = doc?.entries.ko ? await render(doc.entries.ko) : undefined;
+  const enRendered = doc?.entries.en ? await render(doc.entries.en) : undefined;
+  const koHeadings = withRawHeadings(
+    koRendered?.headings ?? [],
+    koRendered?.remarkPluginFrontmatter?.__emojiHeadings,
+    `${path} (ko)`,
+  );
+  const enHeadings = withRawHeadings(
+    enRendered?.headings ?? [],
+    enRendered?.remarkPluginFrontmatter?.__emojiHeadings,
+    `${path} (en)`,
+  );
+  // 번역이 없으면 본문이 반대 언어로 폴백되므로(Bilingual) 목차도 같이 폴백한다.
+  koToc = buildTocTree(koHeadings.length > 0 ? koHeadings : enHeadings);
+  enToc = buildTocTree(enHeadings.length > 0 ? enHeadings : koHeadings);
+} else {
+  categoryDocs = docsInCategory(docs, path);
+  title = humanize(path.split('/').pop() ?? path);
+}
+
+// Work 상세: 표지(영상 우선)와 페이지 포인트 색
+const filePath = (doc?.entries.ko ?? doc?.entries.en)?.filePath ?? '';
+const cover = doc ? resolveMaybe(filePath, doc.cover) : undefined;
+const coverVideo = doc ? resolveMaybe(filePath, doc.work?.coverVideo) : undefined;
+const hero = coverVideo ?? cover;
+---
+
+<BaseLayout title={title} accent={doc?.work?.accent}>
+  {
+    kind === 'doc' && doc ? (
+      <div class="doc-layout">
+        <article class="doc-layout__body">
+          <header class="doc-header">
+            <div class="doc-header__meta">
+              {doc.date && <time>{fmtDate(doc.date)}</time>}
+              {doc.categorySegments.length > 0 && (
+                <a href={withBase(`/${collection}/${doc.categoryPath}`)} class="doc-header__cat">
+                  {doc.categorySegments.map(humanize).join(' / ')}
+                </a>
+              )}
+            </div>
+            <h1>
+              <BiText ko={doc.title.ko} en={doc.title.en} />
+            </h1>
+            {doc.work && (
+              <div class="work-header">
+                <WorkMeta kinds={doc.work.kind} tools={doc.work.tools} />
+                {(doc.work.role || doc.work.period) && (
+                  <dl class="work-header__facts">
+                    {doc.work.role && (
+                      <div>
+                        <dt><BiText ko={UI.role.ko} en={UI.role.en} /></dt>
+                        <dd>{doc.work.role}</dd>
+                      </div>
+                    )}
+                    {doc.work.period && (
+                      <div>
+                        <dt><BiText ko={UI.period.ko} en={UI.period.en} /></dt>
+                        <dd>{doc.work.period}</dd>
+                      </div>
+                    )}
+                  </dl>
+                )}
+              </div>
+            )}
+          </header>
+          {hero && (
+            <figure class="work-hero" style={`view-transition-name:${vtName('work', doc.path)}`}>
+              <MediaView media={hero} poster={coverVideo ? cover : undefined} alt="" mode="view" widths={[800, 1200, 1600]} sizes="(max-width: 860px) 100vw, 46rem" />
+            </figure>
+          )}
+          <PostToc ko={koToc} en={enToc} />
+          <Bilingual ko={doc.entries.ko} en={doc.entries.en} />
+          <Comments />
+        </article>
+        <aside class="doc-layout__aside">
+          <DocToc ko={koToc} en={enToc} />
+        </aside>
+      </div>
+    ) : (
+      <div class="container">
+        <header class="page-header">
+          <p class="eyebrow">{collection}</p>
+          <h1>{title}</h1>
+        </header>
+        <DocList docs={categoryDocs} collection={collection} />
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .doc-header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .doc-header__meta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .doc-header h1 {
+    font-size: var(--text-3xl);
+    margin: 0;
+    line-height: 1.25;
+  }
+  .work-header {
+    margin-top: 0.9rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .work-header__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.75rem;
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+  .work-header__facts dt {
+    color: var(--color-text-muted);
+    font-size: 0.85em;
+  }
+  .work-header__facts dd {
+    margin: 0;
+    font-weight: 600;
+  }
+  .work-hero {
+    margin: 0 0 2rem;
+    border-radius: calc(var(--radius) * 1.5);
+    overflow: hidden;
+    background: var(--color-surface);
+  }
+  .work-hero :global(img),
+  .work-hero :global(video) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

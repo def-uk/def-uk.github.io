@@ -1,0 +1,133 @@
+---
+/**
+ * Lab 메이슨리 그리드. 미디어가 주인공이라 카드 크기는 원본 비율을 따른다.
+ * 영상은 화면에 보일 때만 재생한다(MediaView mode='view').
+ * 전체화면 뷰어(←/→ 넘기기)는 2단계에서 붙인다 — 지금은 상세 페이지로 이동.
+ */
+import type { LabItem } from '../lib/content';
+import { resolveMedia, resolveMaybe } from '../lib/media';
+import { UI } from '../lib/i18n';
+import { vtName, withBase } from '../lib/url';
+import BiText from './BiText.astro';
+import MediaView from './MediaView.astro';
+import WorkMeta from './WorkMeta.astro';
+
+interface Props {
+  items: LabItem[];
+}
+const { items } = Astro.props;
+const cards = items.map((item) => ({
+  item,
+  media: resolveMedia(item.filePath, item.data.media),
+  poster: resolveMaybe(item.filePath, item.data.poster),
+}));
+---
+
+{
+  cards.length === 0 ? (
+    <p class="muted">
+      <BiText ko={UI.noContent.ko} en={UI.noContent.en} />
+    </p>
+  ) : (
+    <ul class="lab-grid">
+      {cards.map(({ item, media, poster }) => (
+        <li data-kinds={item.data.kind.join(' ')}>
+          <a class="lab-card" href={withBase(`/lab/${item.path}`)} style={`view-transition-name:${vtName('lab', item.path)}`}>
+            <MediaView
+              media={media}
+              poster={poster}
+              alt={item.data.title.en}
+              sizes="(max-width: 640px) 100vw, 33vw"
+            />
+            <div class="lab-card__overlay">
+              <p class="lab-card__title">
+                <BiText ko={item.data.title.ko} en={item.data.title.en} />
+              </p>
+              <WorkMeta kinds={item.data.kind} />
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  .lab-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 3 16rem;
+    column-gap: 1rem;
+  }
+  .lab-grid > li {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  .lab-grid > li[hidden] {
+    display: none;
+  }
+  .lab-card {
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-surface);
+    color: #fff;
+  }
+  .lab-card :global(img),
+  .lab-card :global(video) {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.35s ease;
+  }
+  .lab-card:hover :global(img),
+  .lab-card:hover :global(video) {
+    transform: scale(1.03);
+  }
+  /* 제목은 평소엔 숨기고 호버·포커스 때 아래에서 올라온다. 터치 기기는 항상 보인다. */
+  .lab-card__overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 2.5rem 0.9rem 0.8rem;
+    background: linear-gradient(transparent, rgb(0 0 0 / 0.7));
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .lab-card:hover .lab-card__overlay,
+  .lab-card:focus-visible .lab-card__overlay {
+    opacity: 1;
+    transform: none;
+  }
+  @media (hover: none) {
+    .lab-card__overlay {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .lab-card__title {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  .lab-card:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+  /* 어두운 그라데이션 위라 배지는 흰색으로 통일 */
+  .lab-card__overlay :global(.badge) {
+    color: #fff;
+  }
+  .muted {
+    color: var(--color-text-muted);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lab-card :global(img),
+    .lab-card :global(video),
+    .lab-card__overlay {
+      transition: none;
+    }
+  }
+</style>

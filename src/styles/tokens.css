@@ -1,0 +1,81 @@
+/*
+ * ============================================================
+ *  디자인 토큰 — 폰트 · 글자 크기 · 색상의 단일 소스
+ *  폰트나 글자 크기를 바꾸려면 "이 파일"만 수정하면 사이트 전체에 반영됩니다.
+ * ============================================================
+ */
+:root {
+  /* ===== 폰트 =====
+     A2Z(에이투지체)를 자체 호스팅 — 한글·라틴 모두 커버. @font-face는 fonts-a2z.css.
+     코드블록만 JetBrains Mono 유지(A2Z는 고정폭이 아니라 코드 정렬이 깨짐). */
+  --font-body: 'A2Z', -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', 'Segoe UI', Roboto, 'Malgun Gothic', sans-serif;
+  --font-heading: var(--font-body);
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ===== 글자 크기 =====
+     --font-size-base 하나만 바꿔도 본문·제목이 배율(--scale-ratio)에 맞춰 함께 조정됩니다. */
+  --font-size-base: 18px;
+  --line-height-base: 1.75;
+  --scale-ratio: 1.2; /* Minor Third */
+
+  --text-sm: calc(var(--font-size-base) / var(--scale-ratio));
+  --text-base: var(--font-size-base);
+  --text-lg: calc(var(--font-size-base) * var(--scale-ratio));
+  --text-xl: calc(var(--text-lg) * var(--scale-ratio));
+  --text-2xl: calc(var(--text-xl) * var(--scale-ratio));
+  --text-3xl: calc(var(--text-2xl) * var(--scale-ratio));
+
+  /* ===== 색상 — 따뜻한 오프화이트 + 주황 포인트 (2단계에서 정체성에 맞게 재조정) =====
+     다크 팔레트는 아래 두 블록. 사용자가 고른 테마는 <html data-theme>,
+     고르지 않았으면 OS 설정(prefers-color-scheme)을 따른다. */
+  --color-bg: #fbfaf7;
+  --color-surface: #f2f0ea;
+  --color-text: #17161a;
+  --color-text-muted: #625f68;
+  --color-border: #e4e1d9;
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+  --color-code-bg: #f4f2ec;
+  --color-code-border: #e4e1d9;
+  --shadow-card: 0 6px 20px rgb(23 22 26 / 0.07);
+  color-scheme: light;
+
+  /* ===== 레이아웃 ===== */
+  --content-width: 46rem; /* 본문 폭: 약 65–75자 */
+  --wide-width: 64rem;
+  --header-height: 4rem;
+  --space: 1rem;
+  --radius: 8px;
+}
+
+/* 다크 팔레트 — OS 가 다크이고 사용자가 라이트를 고르지 않았을 때 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #0f0f11;
+    --color-surface: #18181b;
+    --color-text: #ececef;
+    --color-text-muted: #a1a1aa;
+    --color-border: #2a2a2f;
+    --color-accent: #fb923c;
+    --color-accent-hover: #fdba74;
+    --color-code-bg: #16161a;
+    --color-code-border: #2a2a2f;
+    --shadow-card: 0 6px 20px rgb(0 0 0 / 0.4);
+    color-scheme: dark;
+  }
+}
+/* 다크 팔레트 — 사용자가 토글로 다크를 골랐을 때(위와 같은 값) */
+:root[data-theme='dark'] {
+  --color-bg: #0f0f11;
+  --color-surface: #18181b;
+  --color-text: #ececef;
+  --color-text-muted: #a1a1aa;
+  --color-border: #2a2a2f;
+  --color-accent: #fb923c;
+  --color-accent-hover: #fdba74;
+  --color-code-bg: #16161a;
+  --color-code-border: #2a2a2f;
+  --shadow-card: 0 6px 20px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
