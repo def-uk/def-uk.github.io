@@ -11,7 +11,7 @@ draft: true
 
 ## What I do
 
-- **Deep learning experiments** — computer vision (classification, detection, segmentation) and data analysis. I like breaking a problem down with data and narrowing the cause through experiments.
+- **Machine learning experiments** — from classic ML like decision trees and ensembles to deep learning for computer vision (classification, detection, segmentation), plus data analysis. I like breaking a problem down with data and narrowing the cause through experiments.
 - **App and web development** — I build apps with Flutter and websites with React and Next.js.
 - **Video and motion** — I make video intros and motion graphics.
 
