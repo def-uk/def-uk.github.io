@@ -1,0 +1,117 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="596.7pt" height="433.8pt" viewBox="0 0 596.7 433.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<defs>
+<style type="text/css">*{stroke-linejoin:round;stroke-linecap:butt}text{font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}</style>
+</defs>
+<g>
+<g>
+<path d="M 0 433.8 L 596.7 433.8 L 596.7 -0 L 0 -0 z" style="fill:#ffffff"/>
+</g>
+<g>
+<g>
+<path d="M 16.0 200.5 L 574.0 200.5 L 574.0 59.0 L 16.0 59.0 z" style="fill:#ffffff"/>
+</g>
+<g>
+<path d="M 406.6 200.5 L 406.6 59.0" clip-path="url(#p19d431e012)" style="fill:none;stroke-dasharray:4.8,2.0;stroke-dashoffset:0;stroke:#e8710a;stroke-width:1.3"/>
+</g>
+<g>
+<path d="M -3.4 200.5 L 35.5 200.5 L 35.5 200.0 L -3.4 200.0 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 52.3 200.5 L 91.3 200.5 L 91.3 195.2 L 52.3 195.2 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 108.1 200.5 L 147.1 200.5 L 147.1 176.5 L 108.1 176.5 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 163.9 200.5 L 202.9 200.5 L 202.9 136.3 L 163.9 136.3 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 219.7 200.5 L 258.7 200.5 L 258.7 88.2 L 219.7 88.2 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 275.5 200.5 L 314.5 200.5 L 314.5 65.7 L 275.5 65.7 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 331.3 200.5 L 370.3 200.5 L 370.3 88.2 L 331.3 88.2 z" clip-path="url(#p19d431e012)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 387.1 200.5 L 426.1 200.5 L 426.1 136.3 L 387.1 136.3 z" clip-path="url(#p19d431e012)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 442.9 200.5 L 481.9 200.5 L 481.9 176.5 L 442.9 176.5 z" clip-path="url(#p19d431e012)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 498.7 200.5 L 537.7 200.5 L 537.7 195.2 L 498.7 195.2 z" clip-path="url(#p19d431e012)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 554.5 200.5 L 593.5 200.5 L 593.5 200.0 L 554.5 200.0 z" clip-path="url(#p19d431e012)" style="fill:#e8710a"/>
+</g>
+<g>
+<defs>
+<path id="m1504cfccaf" d="M 0 0 L 0 3.5" style="stroke:#000000;stroke-width:0.8"/>
+</defs>
+<use xlink:href="#m1504cfccaf" x="16.0" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+<use xlink:href="#m1504cfccaf" x="127.6" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+<use xlink:href="#m1504cfccaf" x="239.2" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+<use xlink:href="#m1504cfccaf" x="350.8" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+<use xlink:href="#m1504cfccaf" x="462.4" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+<use xlink:href="#m1504cfccaf" x="574.0" y="200.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+<g>
+<path d="M 16.0 200.5 L 574.0 200.5" style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linejoin:miter;stroke-linecap:square"/>
+</g>
+<g>
+<text style="font-weight:700;font-size:12.5px;text-anchor:start;fill:#1f2328" x="16.0" y="53.0">10 tosses  ·  P(70% or more): 17.2%</text>
+</g>
+</g>
+<g>
+<g>
+<path d="M 16.0 391.6 L 574.0 391.6 L 574.0 250.1 L 16.0 250.1 z" style="fill:#ffffff"/>
+</g>
+<g>
+<path d="M 406.6 391.6 L 406.6 250.1" clip-path="url(#p03a291ad26)" style="fill:none;stroke-dasharray:4.8,2.0;stroke-dashoffset:0;stroke:#e8710a;stroke-width:1.3"/>
+</g>
+<g clip-path="url(#p03a291ad26)">
+<path transform="translate(0 433.8)" d="M 16.0 -48.6 L 260.4 -48.6 L 261.0 -48.7 L 261.5 -48.7 L 262.1 -48.7 L 262.6 -48.7 L 263.2 -48.8 L 263.8 -48.8 L 264.3 -48.9 L 264.9 -49.0 L 265.4 -49.0 L 266.0 -49.2 L 266.5 -49.3 L 267.1 -49.4 L 267.7 -49.6 L 268.2 -49.9 L 268.8 -50.1 L 269.3 -50.4 L 269.9 -50.8 L 270.5 -51.3 L 271.0 -51.8 L 271.6 -52.4 L 272.1 -53.0 L 272.7 -53.8 L 273.2 -54.7 L 273.8 -55.8 L 274.4 -56.9 L 274.9 -58.2 L 275.5 -59.7 L 276.0 -61.3 L 276.6 -63.2 L 277.1 -65.2 L 277.7 -67.4 L 278.3 -69.9 L 278.8 -72.5 L 279.4 -75.4 L 279.9 -78.6 L 280.5 -81.9 L 281.1 -85.5 L 281.6 -89.3 L 282.2 -93.3 L 282.7 -97.5 L 283.3 -101.9 L 283.8 -106.4 L 284.4 -111.1 L 285.0 -115.9 L 285.5 -120.8 L 286.1 -125.7 L 286.6 -130.7 L 287.2 -135.6 L 287.8 -140.4 L 288.3 -145.1 L 288.9 -149.6 L 289.4 -154.0 L 290.0 -158.0 L 290.5 -161.8 L 291.1 -165.3 L 291.7 -168.3 L 292.2 -171.0 L 292.8 -173.2 L 293.3 -175.0 L 293.9 -176.2 L 294.4 -177.0 L 295.0 -177.3 L 295.6 -177.0 L 296.1 -176.2 L 296.7 -175.0 L 297.2 -173.2 L 297.8 -171.0 L 298.4 -168.3 L 298.9 -165.3 L 299.5 -161.8 L 300.0 -158.0 L 300.6 -154.0 L 301.1 -149.6 L 301.7 -145.1 L 302.3 -140.4 L 302.8 -135.6 L 303.4 -130.7 L 303.9 -125.7 L 304.5 -120.8 L 305.0 -115.9 L 305.6 -111.1 L 306.2 -106.4 L 306.7 -101.9 L 307.3 -97.5 L 307.8 -93.3 L 308.4 -89.3 L 309.0 -85.5 L 309.5 -81.9 L 310.1 -78.6 L 310.6 -75.4 L 311.2 -72.5 L 311.7 -69.9 L 312.3 -67.4 L 312.9 -65.2 L 313.4 -63.2 L 314.0 -61.3 L 314.5 -59.7 L 315.1 -58.2 L 315.7 -56.9 L 316.2 -55.8 L 316.8 -54.7 L 317.3 -53.8 L 317.9 -53.0 L 318.4 -52.4 L 319.0 -51.8 L 319.6 -51.3 L 320.1 -50.8 L 320.7 -50.4 L 321.2 -50.1 L 321.8 -49.9 L 322.3 -49.6 L 322.9 -49.4 L 323.5 -49.3 L 324.0 -49.2 L 324.6 -49.0 L 325.1 -49.0 L 325.7 -48.9 L 326.3 -48.8 L 326.8 -48.8 L 327.4 -48.7 L 327.9 -48.7 L 328.5 -48.7 L 329.0 -48.7 L 329.6 -48.6 L 574.0 -48.6 z" style="fill:#b8bec6;fill-opacity:0.6"/>
+</g>
+<g>
+<use xlink:href="#m1504cfccaf" x="16.0" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="16.0" y="409.2">0%</text>
+<use xlink:href="#m1504cfccaf" x="127.6" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="127.6" y="409.2">20%</text>
+<use xlink:href="#m1504cfccaf" x="239.2" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="239.2" y="409.2">40%</text>
+<use xlink:href="#m1504cfccaf" x="350.8" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="350.8" y="409.2">60%</text>
+<use xlink:href="#m1504cfccaf" x="462.4" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="462.4" y="409.2">80%</text>
+<use xlink:href="#m1504cfccaf" x="574.0" y="391.6" style="stroke:#000000;stroke-width:0.8"/>
+<text style="font-size:12px;text-anchor:middle" x="574.0" y="409.2">100%</text>
+<text style="font-size:12px;text-anchor:middle" x="295.0" y="425.2">Share of heads</text>
+</g>
+<g>
+<path d="M 16.0 385.2 L 260.4 385.1 L 261.0 385.1 L 261.5 385.1 L 262.1 385.1 L 262.6 385.0 L 263.2 385.0 L 263.8 385.0 L 264.3 384.9 L 264.9 384.8 L 265.4 384.7 L 266.0 384.6 L 266.5 384.5 L 267.1 384.3 L 267.7 384.1 L 268.2 383.9 L 268.8 383.6 L 269.3 383.3 L 269.9 383.0 L 270.5 382.5 L 271.0 382.0 L 271.6 381.4 L 272.1 380.7 L 272.7 380.0 L 273.2 379.1 L 273.8 378.0 L 274.4 376.9 L 274.9 375.6 L 275.5 374.1 L 276.0 372.4 L 276.6 370.6 L 277.1 368.6 L 277.7 366.4 L 278.3 363.9 L 278.8 361.2 L 279.4 358.4 L 279.9 355.2 L 280.5 351.9 L 281.1 348.3 L 281.6 344.5 L 282.2 340.5 L 282.7 336.3 L 283.3 331.9 L 283.8 327.3 L 284.4 322.7 L 285.0 317.8 L 285.5 313.0 L 286.1 308.0 L 286.6 303.1 L 287.2 298.2 L 287.8 293.4 L 288.3 288.7 L 288.9 284.2 L 289.4 279.8 L 290.0 275.7 L 290.5 272.0 L 291.1 268.5 L 291.7 265.4 L 292.2 262.8 L 292.8 260.6 L 293.3 258.8 L 293.9 257.5 L 294.4 256.8 L 295.0 256.5 L 295.6 256.8 L 296.1 257.5 L 296.7 258.8 L 297.2 260.6 L 297.8 262.8 L 298.4 265.4 L 298.9 268.5 L 299.5 272.0 L 300.0 275.7 L 300.6 279.8 L 301.1 284.2 L 301.7 288.7 L 302.3 293.4 L 302.8 298.2 L 303.4 303.1 L 303.9 308.0 L 304.5 313.0 L 305.0 317.8 L 305.6 322.7 L 306.2 327.3 L 306.7 331.9 L 307.3 336.3 L 307.8 340.5 L 308.4 344.5 L 309.0 348.3 L 309.5 351.9 L 310.1 355.2 L 310.6 358.4 L 311.2 361.2 L 311.7 363.9 L 312.3 366.4 L 312.9 368.6 L 313.4 370.6 L 314.0 372.4 L 314.5 374.1 L 315.1 375.6 L 315.7 376.9 L 316.2 378.0 L 316.8 379.1 L 317.3 380.0 L 317.9 380.7 L 318.4 381.4 L 319.0 382.0 L 319.6 382.5 L 320.1 383.0 L 320.7 383.3 L 321.2 383.6 L 321.8 383.9 L 322.3 384.1 L 322.9 384.3 L 323.5 384.5 L 324.0 384.6 L 324.6 384.7 L 325.1 384.8 L 325.7 384.9 L 326.3 385.0 L 326.8 385.0 L 327.4 385.0 L 327.9 385.1 L 328.5 385.1 L 329.0 385.1 L 329.6 385.1 L 574.0 385.2" clip-path="url(#p03a291ad26)" style="fill:none;stroke:#6b7280;stroke-linecap:square"/>
+</g>
+<g>
+<path d="M 16.0 391.6 L 574.0 391.6" style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linejoin:miter;stroke-linecap:square"/>
+</g>
+<g>
+<text style="font-weight:700;font-size:11px;text-anchor:start;fill:#e8710a" x="412.2" y="270.3">Same 70%</text>
+</g>
+<g>
+<text style="font-weight:700;font-size:12.5px;text-anchor:start;fill:#1f2328" x="16.0" y="244.1">1,000 tosses  ·  P(70% or more): practically 0</text>
+</g>
+</g>
+<g>
+<text style="font-weight:700;font-size:15px;text-anchor:start" x="16.0" y="20.4">The more tosses, the narrower the swing from chance</text>
+</g>
+</g>
+<defs>
+<clipPath id="p19d431e012">
+<rect x="16.0" y="59.0" width="558" height="141.5"/>
+</clipPath>
+<clipPath id="p03a291ad26">
+<rect x="16.0" y="250.1" width="558" height="141.5"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,204 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="572.4pt" height="340.7pt" viewBox="0 0 572.4 340.7" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<defs>
+<style type="text/css">*{stroke-linejoin:round;stroke-linecap:butt}text{font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}</style>
+</defs>
+<g>
+<g>
+<path d="M 0 340.7 L 572.4 340.7 L 572.4 0 L 0 0 z" style="fill:#ffffff"/>
+</g>
+<g>
+<g>
+<path d="M 7.2 297.6 L 565.2 297.6 L 565.2 31.5 L 7.2 31.5 z" style="fill:#ffffff"/>
+</g>
+<g>
+<g id="xtick_1">
+<g>
+<defs>
+<path id="m1504cfccaf" d="M 0 0 L 0 3.5" style="stroke:#000000;stroke-width:0.8"/>
+</defs>
+<g>
+<use xlink:href="#m1504cfccaf" x="32.5" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="32.5" y="315.1" transform="rotate(-0 32.5 315.1)">-20</text>
+</g>
+</g>
+<g id="xtick_2">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="95.9" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="95.9" y="315.1" transform="rotate(-0 95.9 315.1)">-15</text>
+</g>
+</g>
+<g id="xtick_3">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="159.3" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="159.3" y="315.1" transform="rotate(-0 159.3 315.1)">-10</text>
+</g>
+</g>
+<g id="xtick_4">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="222.7" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="222.7" y="315.1" transform="rotate(-0 222.7 315.1)">-5</text>
+</g>
+</g>
+<g id="xtick_5">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="286.2" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="286.2" y="315.1" transform="rotate(-0 286.2 315.1)">0</text>
+</g>
+</g>
+<g id="xtick_6">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="349.6" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="349.6" y="315.1" transform="rotate(-0 349.6 315.1)">5</text>
+</g>
+</g>
+<g id="xtick_7">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="413.0" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="413.0" y="315.1" transform="rotate(-0 413.0 315.1)">10</text>
+</g>
+</g>
+<g id="xtick_8">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="476.4" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="476.4" y="315.1" transform="rotate(-0 476.4 315.1)">15</text>
+</g>
+</g>
+<g id="xtick_9">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="539.8" y="297.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="539.8" y="315.1" transform="rotate(-0 539.8 315.1)">20</text>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="286.2" y="331.1" transform="rotate(-0 286.2 331.1)">Class 1 mean − Class 2 mean (points)</text>
+</g>
+</g>
+<g/>
+<g>
+<path d="M 413.0 297.6 L 413.0 31.5" clip-path="url(#p1c2b180bb0)" style="fill:none;stroke-dasharray:4.8,2.0;stroke-dashoffset:0;stroke:#e8710a;stroke-width:1.3"/>
+</g>
+<g>
+<path d="M 7.2 297.6 L 565.2 297.6" style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linejoin:miter;stroke-linecap:square"/>
+</g>
+<g>
+<defs>
+<path id="m6be6488f33" d="M 0 10.2 C 2.7 10.2 5.3 9.1 7.2 7.2 C 9.1 5.3 10.2 2.7 10.2 0 C 10.2 -2.7 9.1 -5.3 7.2 -7.2 C 5.3 -9.1 2.7 -10.2 0 -10.2 C -2.7 -10.2 -5.3 -9.1 -7.2 -7.2 C -9.1 -5.3 -10.2 -2.7 -10.2 0 C -10.2 2.7 -9.1 5.3 -7.2 7.2 C -5.3 9.1 -2.7 10.2 0 10.2 z" style="stroke:#ffffff;stroke-width:1.5"/>
+</defs>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="74.4" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="117.5" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="159.3" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="159.3" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="201.2" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="201.2" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="244.3" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="244.3" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="244.3" y="132.8" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="286.2" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="286.2" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="328.0" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="328.0" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="328.0" y="132.8" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m6be6488f33" x="371.1" y="259.6" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m6be6488f33" x="371.1" y="196.2" style="fill:#b8bec6;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<defs>
+<path id="m97884f0f67" d="M 0 10.2 C 2.7 10.2 5.3 9.1 7.2 7.2 C 9.1 5.3 10.2 2.7 10.2 0 C 10.2 -2.7 9.1 -5.3 7.2 -7.2 C 5.3 -9.1 2.7 -10.2 0 -10.2 C -2.7 -10.2 -5.3 -9.1 -7.2 -7.2 C -9.1 -5.3 -10.2 -2.7 -10.2 0 C -10.2 2.7 -9.1 5.3 -7.2 7.2 C -5.3 9.1 -2.7 10.2 0 10.2 z" style="stroke:#ffffff;stroke-width:1.5"/>
+</defs>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m97884f0f67" x="413.0" y="259.6" style="fill:#e8710a;stroke:#ffffff;stroke-width:1.5"/>
+<use xlink:href="#m97884f0f67" x="413.0" y="196.2" style="fill:#e8710a;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m97884f0f67" x="454.8" y="259.6" style="fill:#e8710a;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<g clip-path="url(#p1c2b180bb0)">
+<use xlink:href="#m97884f0f67" x="497.9" y="259.6" style="fill:#e8710a;stroke:#ffffff;stroke-width:1.5"/>
+</g>
+</g>
+<g>
+<text style="font-weight:700;font-size:11px;text-anchor:start;fill:#e8710a" x="420.6" y="72.8" transform="rotate(-0 420.6 72.8)">Actual difference +10</text>
+</g>
+<g>
+<text style="font-size:10px;text-anchor:start;fill:#6b7280" x="13.5" y="72" transform="rotate(-0 13.5 72)">Each dot = one class assignment</text>
+</g>
+<g>
+<text style="font-weight:700;font-size:14px;text-anchor:start" x="7.2" y="19.5" transform="rotate(-0 7.2 19.5)">Of the 20 ways to split 6 students 3:3, 4 give +10 or more (p = 0.20)</text>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="p1c2b180bb0">
+<rect x="7.2" y="31.5" width="558" height="266.1"/>
+</clipPath>
+</defs>
+</svg>

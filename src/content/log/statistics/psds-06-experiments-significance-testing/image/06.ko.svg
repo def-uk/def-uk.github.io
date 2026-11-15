@@ -1,0 +1,119 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="488.7pt" height="347.0pt" viewBox="0 0 488.7 347.0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<defs>
+<style type="text/css">*{stroke-linejoin:round;stroke-linecap:butt}text{font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}</style>
+</defs>
+<g>
+<g>
+<path d="M 0 347.0 
+L 488.7 347.0 
+L 488.7 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+</g>
+<g>
+<g>
+<path d="M 162.3 188.4 
+L 292.8 188.4 
+Q 298.4 188.4 298.4 182.9 
+L 298.4 80.9 
+Q 298.4 75.3 292.8 75.3 
+L 162.3 75.3 
+Q 156.7 75.3 156.7 80.9 
+L 156.7 182.9 
+Q 156.7 188.4 162.3 188.4 
+z
+" clip-path="url(#pcb2e60bb4b)" style="fill: #fde7d3; stroke: #e8710a; stroke-width: 1.5; stroke-linejoin: miter"/>
+</g>
+<g>
+<path d="M 307.4 188.4 
+L 437.9 188.4 
+Q 443.5 188.4 443.5 182.9 
+L 443.5 80.9 
+Q 443.5 75.3 437.9 75.3 
+L 307.4 75.3 
+Q 301.8 75.3 301.8 80.9 
+L 301.8 182.9 
+Q 301.8 188.4 307.4 188.4 
+z
+" clip-path="url(#pcb2e60bb4b)" style="fill: #e3f4ec; stroke: #2e9e6a; stroke-width: 1.5; stroke-linejoin: miter"/>
+</g>
+<g>
+<path d="M 162.3 307.6 
+L 292.8 307.6 
+Q 298.4 307.6 298.4 302.1 
+L 298.4 200.1 
+Q 298.4 194.5 292.8 194.5 
+L 162.3 194.5 
+Q 156.7 194.5 156.7 200.1 
+L 156.7 302.1 
+Q 156.7 307.6 162.3 307.6 
+z
+" clip-path="url(#pcb2e60bb4b)" style="fill: #e3f4ec; stroke: #2e9e6a; stroke-width: 1.5; stroke-linejoin: miter"/>
+</g>
+<g>
+<path d="M 307.4 307.6 
+L 437.9 307.6 
+Q 443.5 307.6 443.5 302.1 
+L 443.5 200.1 
+Q 443.5 194.5 437.9 194.5 
+L 307.4 194.5 
+Q 301.8 194.5 301.8 200.1 
+L 301.8 302.1 
+Q 301.8 307.6 307.4 307.6 
+z
+" clip-path="url(#pcb2e60bb4b)" style="fill: #eee8fe; stroke: #8b5cf6; stroke-width: 1.5; stroke-linejoin: miter"/>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 15px; text-anchor: start; fill: #1f2328" x="12.7" y="21.0">1종·2종 오류는 혼동행렬의 FP, FN과 같은 구조다</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 11.5px; text-anchor: middle; fill: #6b7280" x="230.4" y="59.8">실제로 효과 없음</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 11.5px; text-anchor: middle; fill: #6b7280" x="375.4" y="59.8">실제로 효과 있음</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 11.5px; fill: #6b7280" transform="translate(54.7 130.5)">효과 있다고</text>
+<text style="font-weight: 700; font-size: 11.5px; fill: #6b7280" transform="translate(71.9 142.0)">판단</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 11.5px; fill: #6b7280" transform="translate(54.7 249.7)">효과 없다고</text>
+<text style="font-weight: 700; font-size: 11.5px; fill: #6b7280" transform="translate(71.9 261.2)">판단</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 13.5px; text-anchor: middle; fill: #e8710a" x="227.6" y="108.6">FP · 1종 오류</text>
+</g>
+<g>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(175.7 145.7)">효과 없는데 있다고 착각</text>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(183.3 161.4)">유의수준 α로 막는다</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 13.5px; text-anchor: middle; fill: #2e9e6a" x="372.6" y="108.6">TP</text>
+</g>
+<g>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(331.6 145.7)">진짜 효과를 잡아냄</text>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(335.9 160.8)">검정력 (= recall)</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 13.5px; text-anchor: middle; fill: #2e9e6a" x="227.6" y="227.8">TN</text>
+</g>
+<g>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(202.2 264.9)">효과 없음을</text>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(207.1 280.6)">맞게 판단</text>
+</g>
+<g>
+<text style="font-weight: 700; font-size: 13.5px; text-anchor: middle; fill: #8b5cf6" x="372.6" y="227.8">FN · 2종 오류</text>
+</g>
+<g>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(336.5 264.9)">효과 있는데 놓침</text>
+<text style="font-size: 10.5px; fill: #1f2328" transform="translate(330.5 280.6)">주로 표본이 작을 때</text>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="pcb2e60bb4b">
+<rect x="7.2" y="7.2" width="474.3" height="332.6"/>
+</clipPath>
+</defs>
+</svg>

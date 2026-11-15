@@ -1,0 +1,311 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="563.9pt" height="342.7pt" viewBox="0 0 563.9 342.7" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<defs>
+<style type="text/css">*{stroke-linejoin:round;stroke-linecap:butt}text{font-family:"Noto Sans CJK KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}</style>
+</defs>
+<g>
+<g>
+<path d="M 0 342.7 L 563.9 342.7 L 563.9 0 L 0 0 z" style="fill:#ffffff"/>
+</g>
+<g>
+<g>
+<path d="M 54.5 300.5 L 556.7 300.5 L 556.7 34.4 L 54.5 34.4 z" style="fill:#ffffff"/>
+</g>
+<g>
+<g id="xtick_1">
+<g>
+<defs>
+<path id="m1504cfccaf" d="M 0 0 L 0 3.5" style="stroke:#000000;stroke-width:0.8"/>
+</defs>
+<g>
+<use xlink:href="#m1504cfccaf" x="93.2" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="93.2" y="318.0" transform="rotate(-0 93.2 318.0)">0</text>
+</g>
+</g>
+<g id="xtick_2">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="135.6" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="135.6" y="318.0" transform="rotate(-0 135.6 318.0)">1</text>
+</g>
+</g>
+<g id="xtick_3">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="178.0" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="178.0" y="318.0" transform="rotate(-0 178.0 318.0)">2</text>
+</g>
+</g>
+<g id="xtick_4">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="220.3" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="220.3" y="318.0" transform="rotate(-0 220.3 318.0)">3</text>
+</g>
+</g>
+<g id="xtick_5">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="262.7" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="262.7" y="318.0" transform="rotate(-0 262.7 318.0)">4</text>
+</g>
+</g>
+<g id="xtick_6">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="305.1" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="305.1" y="318.0" transform="rotate(-0 305.1 318.0)">5</text>
+</g>
+</g>
+<g id="xtick_7">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="347.5" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="347.5" y="318.0" transform="rotate(-0 347.5 318.0)">6</text>
+</g>
+</g>
+<g id="xtick_8">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="389.8" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="389.8" y="318.0" transform="rotate(-0 389.8 318.0)">7</text>
+</g>
+</g>
+<g id="xtick_9">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="432.2" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="432.2" y="318.0" transform="rotate(-0 432.2 318.0)">8</text>
+</g>
+</g>
+<g id="xtick_10">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="474.6" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="474.6" y="318.0" transform="rotate(-0 474.6 318.0)">9</text>
+</g>
+</g>
+<g id="xtick_11">
+<g>
+<g>
+<use xlink:href="#m1504cfccaf" x="516.9" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="516.9" y="318.0" transform="rotate(-0 516.9 318.0)">10</text>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="305.6" y="334.0" transform="rotate(-0 305.6 334.0)">앞면이 나온 횟수</text>
+</g>
+</g>
+<g>
+<g id="ytick_1">
+<g>
+<path d="M 54.5 300.5 L 556.7 300.5" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<defs>
+<path id="m5d545ce8f8" d="M 0 0 L -3.5 0" style="stroke:#000000;stroke-width:0.8"/>
+</defs>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="300.5" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="305.7" transform="rotate(-0 47.5 305.7)">0%</text>
+</g>
+</g>
+<g id="ytick_2">
+<g>
+<path d="M 54.5 254.6 L 556.7 254.6" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="254.6" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="259.9" transform="rotate(-0 47.5 259.9)">5%</text>
+</g>
+</g>
+<g id="ytick_3">
+<g>
+<path d="M 54.5 208.7 L 556.7 208.7" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="208.7" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="214.0" transform="rotate(-0 47.5 214.0)">10%</text>
+</g>
+</g>
+<g id="ytick_4">
+<g>
+<path d="M 54.5 162.8 L 556.7 162.8" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="162.8" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="168.1" transform="rotate(-0 47.5 168.1)">15%</text>
+</g>
+</g>
+<g id="ytick_5">
+<g>
+<path d="M 54.5 116.9 L 556.7 116.9" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="116.9" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="122.2" transform="rotate(-0 47.5 122.2)">20%</text>
+</g>
+</g>
+<g id="ytick_6">
+<g>
+<path d="M 54.5 71.1 L 556.7 71.1" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e5e7eb;stroke-width:0.8;stroke-linecap:square"/>
+</g>
+<g>
+<g>
+<use xlink:href="#m5d545ce8f8" x="54.5" y="71.1" style="stroke:#000000;stroke-width:0.8"/>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:end" x="47.5" y="76.3" transform="rotate(-0 47.5 76.3)">25%</text>
+</g>
+</g>
+<g>
+<text style="font-size:12px;text-anchor:middle" x="17.7" y="167.4" transform="rotate(-90 17.7 167.4)">확률</text>
+</g>
+</g>
+<g>
+<path d="M 77.3 300.5 L 109.1 300.5 L 109.1 299.6 L 77.3 299.6 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 119.7 300.5 L 151.5 300.5 L 151.5 291.5 L 119.7 291.5 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 162.1 300.5 L 193.9 300.5 L 193.9 260.1 L 162.1 260.1 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 204.5 300.5 L 236.2 300.5 L 236.2 192.9 L 204.5 192.9 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 246.8 300.5 L 278.6 300.5 L 278.6 112.3 L 246.8 112.3 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 289.2 300.5 L 321.0 300.5 L 321.0 74.6 L 289.2 74.6 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 331.6 300.5 L 363.4 300.5 L 363.4 112.3 L 331.6 112.3 z" clip-path="url(#p2b05d31f78)" style="fill:#b8bec6"/>
+</g>
+<g>
+<path d="M 373.9 300.5 L 405.7 300.5 L 405.7 192.9 L 373.9 192.9 z" clip-path="url(#p2b05d31f78)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 416.3 300.5 L 448.1 300.5 L 448.1 260.1 L 416.3 260.1 z" clip-path="url(#p2b05d31f78)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 458.7 300.5 L 490.5 300.5 L 490.5 291.5 L 458.7 291.5 z" clip-path="url(#p2b05d31f78)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 501.1 300.5 L 532.8 300.5 L 532.8 299.6 L 501.1 299.6 z" clip-path="url(#p2b05d31f78)" style="fill:#e8710a"/>
+</g>
+<g>
+<path d="M 372.9 167.4 L 533.9 167.4" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e8710a;stroke-width:1.2;stroke-linecap:square"/>
+</g>
+<g>
+<path d="M 372.9 172.0 L 372.9 167.4" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e8710a;stroke-width:1.2;stroke-linecap:square"/>
+</g>
+<g>
+<path d="M 533.9 172.0 L 533.9 167.4" clip-path="url(#p2b05d31f78)" style="fill:none;stroke:#e8710a;stroke-width:1.2;stroke-linecap:square"/>
+</g>
+<g>
+<path d="M 54.5 300.5 L 54.5 34.4" style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linejoin:miter;stroke-linecap:square"/>
+</g>
+<g>
+<path d="M 54.5 300.5 L 556.7 300.5" style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linejoin:miter;stroke-linecap:square"/>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="93.2" y="294.1" transform="rotate(-0 93.2 294.1)">0.1%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="135.6" y="286.0" transform="rotate(-0 135.6 286.0)">1.0%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="178.0" y="254.6" transform="rotate(-0 178.0 254.6)">4.4%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="220.3" y="187.4" transform="rotate(-0 220.3 187.4)">11.7%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="262.7" y="106.8" transform="rotate(-0 262.7 106.8)">20.5%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="305.1" y="69.1" transform="rotate(-0 305.1 69.1)">24.6%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="347.5" y="106.8" transform="rotate(-0 347.5 106.8)">20.5%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="389.8" y="187.4" transform="rotate(-0 389.8 187.4)">11.7%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="432.2" y="254.6" transform="rotate(-0 432.2 254.6)">4.4%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="474.6" y="286.0" transform="rotate(-0 474.6 286.0)">1.0%</text>
+</g>
+<g>
+<text style="font-size:9px;text-anchor:middle;fill:#6b7280" x="516.9" y="294.1" transform="rotate(-0 516.9 294.1)">0.1%</text>
+</g>
+<g>
+<text style="font-weight:700;font-size:12px;text-anchor:middle;fill:#e8710a" x="453.4" y="158.2" transform="rotate(-0 453.4 158.2)">7번 이상 나올 확률 = 17.2%</text>
+</g>
+<g>
+<text style="font-weight:700;font-size:15px;text-anchor:start" x="54.5" y="20.4" transform="rotate(-0 54.5 20.4)">정상 동전이라면, 10번 중 앞면 7번 이상은 꽤 흔하다</text>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="p2b05d31f78">
+<rect x="54.5" y="34.4" width="502.2" height="266.1"/>
+</clipPath>
+</defs>
+</svg>
